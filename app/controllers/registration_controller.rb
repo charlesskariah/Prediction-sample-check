@@ -1,5 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
- 
+
+	before_filter :one
+
+	def one
+		binding.pry
+	end
   private
  
   def sign_up_params

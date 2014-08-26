@@ -39,6 +39,11 @@ gem 'spring',        group: :development
 
 # Use unicorn as the app server
 # gem 'unicorn'
+group :development do
+	gem 'pry'
+	gem 'pry-rails'
+	gem 'pry-byebug'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
