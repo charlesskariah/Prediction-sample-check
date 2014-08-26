@@ -1,3 +1,12 @@
+# in development.rb
+
+ENV['FACEBOOK_APP_ID'] = "282535961932879";
+ENV['FACEBOOK_SECRET'] = "43a9fc320df66fb64f6bd597e89aba02";
+
+
+
+# in database.yml replace all
+
 # SQLite version 3.x
 #   gem install sqlite3
 #
@@ -28,3 +37,8 @@ test:
 production:
   <<: *default
   database: prediction_app
+
+
+
+
+  
