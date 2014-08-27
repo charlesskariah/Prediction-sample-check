@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'omniauth-facebook'
+
 gem 'carmen-rails', '~> 1.0.0'
 
 gem 'high_voltage', '~> 2.2.1'
