@@ -6,13 +6,10 @@ gem 'carmen-rails', '~> 1.0.0'
 
 gem 'high_voltage', '~> 2.2.1'
 
-gem 'omniauth-facebook'
-
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
 
 gem 'taps'
 
@@ -47,6 +44,11 @@ group :development do
 	gem 'pry'
 	gem 'pry-rails'
 	gem 'pry-byebug'
+end
+
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
 end
 
 # Use Capistrano for deployment
