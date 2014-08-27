@@ -8,9 +8,11 @@ default: &default
   adapter: postgresql
   encoding: unicode
   database: prediction_app
+  port: 5432
+  host: localhost
   pool: 5
-  username: charles
-  password: charles
+  username: prediction
+  password: prediction
 
 development:
   <<: *default

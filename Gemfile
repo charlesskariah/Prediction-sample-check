@@ -4,6 +4,8 @@ gem 'carmen-rails', '~> 1.0.0'
 
 gem 'high_voltage', '~> 2.2.1'
 
+gem 'omniauth-facebook'
+
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
