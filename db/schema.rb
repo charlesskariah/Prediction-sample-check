@@ -11,10 +11,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826070104) do
+ActiveRecord::Schema.define(version: 20140827182124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "club_leagues", force: true do |t|
+    t.integer "club_id"
+    t.integer "league_id"
+  end
+
+  create_table "clubs", force: true do |t|
+    t.string   "club_name"
+    t.string   "logo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "leagues", force: true do |t|
+    t.string   "league_name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "location"
+    t.string   "status"
+    t.string   "logo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "matches", force: true do |t|
+    t.integer  "club_1_id"
+    t.integer  "club_2_id"
+    t.date     "match_date"
+    t.time     "match_time"
+    t.integer  "club_1_score"
+    t.integer  "club_2_score"
+    t.integer  "round_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rounds", force: true do |t|
+    t.string   "round_name"
+    t.string   "status"
+    t.integer  "league_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "selected_leagues", force: true do |t|
+    t.string   "status"
+    t.integer  "league_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  club_name: MyString
+  logo: MyString
+
+two:
+  club_name: MyString
+  logo: MyString

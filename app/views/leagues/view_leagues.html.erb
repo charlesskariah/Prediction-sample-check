@@ -1,0 +1,16 @@
+<h1>view_leagues</h1>
+<% @unjoined_leagues.each do |league| %>
+  <p>
+    <strong>league name</strong>
+    <%= league.league_name %>
+    <%= link_to 'join to predict', :controller => :leagues , :action => :join_league , :id => league.id %>
+  </p>
+<% end %>
+<p>
+	<strong>Joined leagues </p>
+		<% @joined_leagues.each do |league|%>
+          <%= league.league_name %>
+        <br>
+     <% end %> 
+</p>
+ <%= link_to 'Log out', destroy_user_session_path, method: :delete %>

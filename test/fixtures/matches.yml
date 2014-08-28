@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_name: MyString
+  club_1_id: 1
+  club_2_id: 1
+  date: 2014-08-27
+  time: 2014-08-27 13:16:21
+  club_1_score: 1
+  club_2_score: 1
+
+two:
+  match_name: MyString
+  club_1_id: 1
+  club_2_id: 1
+  date: 2014-08-27
+  time: 2014-08-27 13:16:21
+  club_1_score: 1
+  club_2_score: 1
