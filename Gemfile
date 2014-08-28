@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+
 gem 'omniauth-facebook'
 
 gem 'carmen-rails', '~> 1.0.0'
@@ -43,6 +45,11 @@ gem 'spring',        group: :development
 
 gem 'rails_12factor', group: :production
   
+
+group :development, :test do
+gem 'foreman'
+end
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
