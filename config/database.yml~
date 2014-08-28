@@ -11,8 +11,9 @@ default: &default
   port: 5432
   host: localhost
   pool: 5
-  username: nimmi 
-  password: 123qweAadmin
+  username: database
+  password: database
+
 development:
   <<: *default
   database: prediction_app

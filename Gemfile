@@ -12,11 +12,10 @@ gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
 
 gem 'taps'
 
-gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,11 +42,9 @@ gem 'spring',        group: :development
 
 # Use unicorn as the app server
 # gem 'unicorn'
-group :development do
-	gem 'pry'
-	gem 'pry-rails'
-	gem 'pry-byebug'
-end
+
+gem 'rails_12factor', group: :production
+  
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
