@@ -1,0 +1,12 @@
+<h1>Rounds</h1>
+<table>
+  <tr>
+    <td>Weeks</td>
+  </tr>
+  <% @rounds.each do|round|%>
+  <tr>
+    <td><%= round.round_name %></td>
+    <td><%= link_to 'View Matches', :controller => :matches , :action => :view_matches , :round_id => round.id %></td>
+   </tr>
+  <% end %>
+</table>

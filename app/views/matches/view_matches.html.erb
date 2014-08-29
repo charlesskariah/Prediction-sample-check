@@ -1,0 +1,22 @@
+<h1>Matches</h1>
+<table>	
+	<tr> 
+		<td> Team 1 </td>
+		<td> </td>
+		<td> Team 2 </td>
+		<td> Match Date </td>
+		<td></td>
+		<td> Match Time </td>
+   <% @matches.each do |match| %>
+  <tr>
+  	<td> <%= Club.find(match.club_1_id).club_name %></td>
+  	<td> Vs</td>
+    <td> <%= Club.find(match.club_2_id).club_name %></td>
+	<td> <%= match.match_date %> </td>
+	<td> --</td>
+	<td> <%= match.match_time %> </td>
+  </tr>
+<% end %>
+</table>
+
+	<%= link_to 'Log out', destroy_user_session_path, method: :delete %>

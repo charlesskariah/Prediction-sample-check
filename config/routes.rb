@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'leagues/view_leagues'
   get 'leagues/join_league'
+  get 'matches/view_matches'
+  get 'rounds/view_rounds'
 
   
   devise_for :users, :controllers => { registration: 'registrations', :omniauth_callbacks => "omniauth_callbacks"}
