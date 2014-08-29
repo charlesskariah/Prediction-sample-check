@@ -19,7 +19,7 @@ insert into clubs values('17','Swansea','', current_timestamp, current_timestamp
 insert into clubs values('18','Spurs','', current_timestamp, current_timestamp);
 insert into clubs values('19','West Brom','', current_timestamp, current_timestamp);
 insert into clubs values('20','West Ham','', current_timestamp, current_timestamp);
-INSERT INTO matches(club_1_id,club_2_id,date,time) VALUES 
+INSERT INTO matches(club_1_id,club_2_id,match_date,match_time) VALUES 
  ('11','17',to_date('16Aug2014', 'DDMonYYYY'),'12:45'),
  ('8','6', to_date('16Aug2014', 'DDMonYYYY'),'15:00'),
  ('13','7' ,to_date('16Aug2014', 'DDMonYYYY'),'15:00'),
