@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827182124) do
+ActiveRecord::Schema.define(version: 20140901121755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,19 @@ ActiveRecord::Schema.define(version: 20140827182124) do
     t.integer  "club_1_score"
     t.integer  "club_2_score"
     t.integer  "round_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "predictions", force: true do |t|
+    t.integer  "club1_predicted_score"
+    t.integer  "club2_predicted_score"
+    t.integer  "result"
+    t.integer  "accuracy"
+    t.integer  "margin"
+    t.integer  "points"
+    t.integer  "selected_league_id"
+    t.integer  "match_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

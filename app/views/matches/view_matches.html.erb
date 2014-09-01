@@ -10,28 +10,35 @@
 
 <h1> Matches </h1>
 <table border=0>	
+  <% round_id = params[:round_id] %>
   <% @matches.each do |match| %>
-  <%= form_tag({controller: "predictions", action: "create"}, method: "get") do %>
+  <%= form_for(@prediction , url: predictions_create_path) do |f| %>
+  	  <%= hidden_field_tag(:round_id,  round_id) %>
+  	  <%= f.hidden_field(:match_id, :value => match.id) %>
+  	  <% league_id = Round.find(round_id).league %>
+  	  <% selected_league = SelectedLeague.where(league_id: league_id, user_id: current_user.id).to_a.first %>
+  	  <%= f.hidden_field(:selected_league_id , :value => selected_league.id) %>
   	  <tr>
   	  	<td colspan=3> 
   	  		<i> <%= I18n.l match.match_date %> <%= I18n.l match.match_time %> </i> 
   	  	</td>
 	  </tr>
-	  <tr>	  	
+	  <tr>
+	  	 <% #binding.pry  %>
 	  	<td>
 	  		<%= Club.find(match.club_1_id).club_name %>   	  	
 	  	</td>
 	  	<td>
-	  		<%= number_field_tag(:club1_score,nil,  in: 0..20, step: 1) %>
+	  		<%= f.number_field(:club1_predicted_score, {in: 0..20, step: 1}) %>
 	  	</td>
 	  	<td>
-	  		<%= number_field_tag(:club2_score, nil,  in: 0..20, step: 1) %>
+	  		<%= f.number_field(:club2_predicted_score, {in: 0..20, step: 1}) %>
 	  	</td>
 	  	<td>
 	  		<%= Club.find(match.club_2_id).club_name %>	  		
 	  	</td>
 	  	<td>
-	  		  <%= submit_tag("Predict") %>
+	  		  <%= f.submit("Predict") %>
 	  	</td>
 	  </tr>
   <% end %>

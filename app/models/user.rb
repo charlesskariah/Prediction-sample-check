@@ -27,5 +27,9 @@ class User < ActiveRecord::Base
       end
     end
   end
+  def has_joined_league(round_id)
+    round = Round.find(round_id)
+    self.leagues.exists?round.league
+  end
 
 end

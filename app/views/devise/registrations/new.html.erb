@@ -4,13 +4,13 @@
   <%= devise_error_messages! %>
 
    <div><%= f.label :first_name %><br />
-  <%= f.text_field :firstname %></div>
+  <%= f.text_field :firstname, :validate => true, autofocus: true %></div>
 
    <div><%= f.label :last_name %><br />
-  <%= f.text_field :lastname%></div>
+  <%= f.text_field :lastname,:validate => true %></div>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <%= f.email_field :email %></div>
 
    <div><%= f.label :user_name %><br />
   <%= f.text_field :username %></div>

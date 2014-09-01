@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
+  post 'predictions/create'
+
+  get 'predictions/update'
+
+  get 'predictions/delete'
 
   get 'leagues/view_leagues'
   get 'leagues/join_league'
   get 'matches/view_matches'
   get 'rounds/view_rounds'
+  get 'matches/test'
 
   
   devise_for :users, :controllers => { registration: 'registrations', :omniauth_callbacks => "omniauth_callbacks"}

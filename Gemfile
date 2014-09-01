@@ -52,3 +52,9 @@ gem 'rails_12factor', group: :production
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+	gem 'binding_of_caller'
+	gem 'pry'
+	gem 'pry-rails'
+	gem 'pry-byebug'
+end
