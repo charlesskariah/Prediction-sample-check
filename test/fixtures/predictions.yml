@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  club1_predicted_score: 1
+  club2_predicted_score: 1
+  result: 1
+  accuracy: 1
+  margin: 1
+  points: 1
+
+two:
+  club1_predicted_score: 1
+  club2_predicted_score: 1
+  result: 1
+  accuracy: 1
+  margin: 1
+  points: 1

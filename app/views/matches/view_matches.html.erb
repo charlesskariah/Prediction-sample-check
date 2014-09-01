@@ -1,7 +1,12 @@
 <h1>Matches</h1>
-<table>	
+<style>
+tr.d0 td {
+    background-color: #CC9999; color: black;
+}
+</style>
+<table bgcolor="#B2BEB5">	
    <% @matches.each do |match| %>
-  <tr>
+  <tr class="d0">
   	<td> <b><%= Club.find(match.club_1_id).club_name %> Vs <%= Club.find(match.club_2_id).club_name %> </br> <i> <%= I18n.l match.match_date %> </br>  <%= I18n.l match.match_time %> </b></i>
   	</td>
   </tr>
