@@ -1,11 +1,41 @@
-<h1>Matches</h1>
-<table>	
-   <% @matches.each do |match| %>
-  <tr>
-  	<td> <b><%= Club.find(match.club_1_id).club_name %> Vs <%= Club.find(match.club_2_id).club_name %> </br> <i> <%= I18n.l match.match_date %> </br>  <%= I18n.l match.match_time %> </b></i>
-  	</td>
-  </tr>
+<% 
+   if current_user.has_joined_league params[:round_id] 
+	link_to_text = "Predict"
+ 	link_to_url  = "" 
+   else
+   	link_to_text = "Join to Predict"
+   	link_to_url = ""
+   end  
+%>
+
+<h1> Matches </h1>
+<table border=0>	
+  <% @matches.each do |match| %>
+  <%= form_tag({controller: "predictions", action: "create"}, method: "get") do %>
+  	  <tr>
+  	  	<td colspan=3> 
+  	  		<i> <%= I18n.l match.match_date %> <%= I18n.l match.match_time %> </i> 
+  	  	</td>
+	  </tr>
+	  <tr>	  	
+	  	<td>
+	  		<%= Club.find(match.club_1_id).club_name %>   	  	
+	  	</td>
+	  	<td>
+	  		<%= number_field_tag(:club1_score,nil,  in: 0..20, step: 1) %>
+	  	</td>
+	  	<td>
+	  		<%= number_field_tag(:club2_score, nil,  in: 0..20, step: 1) %>
+	  	</td>
+	  	<td>
+	  		<%= Club.find(match.club_2_id).club_name %>	  		
+	  	</td>
+	  	<td>
+	  		  <%= submit_tag("Predict") %>
+	  	</td>
+	  </tr>
+  <% end %>
 <% end %>
 </table>
 
-	<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
