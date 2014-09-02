@@ -1,22 +1,22 @@
-<h1>Leagues</h1>
+<h1>ProLeagueFantasy</h1>
 <table>
-  <tr>
+  <th>Leagues</th>
     <% @unjoined_leagues.each do |league| %>
-        <strong>league name</strong>
-        <%= league.league_name %>
-        <%= link_to 'join to predict', :controller => :leagues , :action => :join_league , :id => league.id %>
-        <%= link_to 'View ROUNDS', :controller => :rounds , :action => :view_rounds , :league_id => league.id %>
-    <% end %>
-  </tr>
-  <tr></tr>
   <tr>
-	<strong>Joined leagues </p>
+    <td><%= league.league_name %></td>
+    <td><%= link_to 'join to predict', :controller => :leagues , :action => :join_league , :id => league.id %></td>
+    <td><%= link_to 'View Rounds', :controller => :rounds , :action => :view_rounds , :league_id => league.id %></td>
+  </tr>
+</table>
+    <% end %>
+<table>
+  <th>Joined-Leagues</th> 
 		<% @joined_leagues.each do |league|%>
-          <%= league.league_name %>
-          <%= link_to 'View Rounds', :controller => :rounds , :action => :view_rounds , :league_id => league.id %>
-          <%= link_to 'View Predictions', :controller => :predictions , :action => :view_predictions , :league_id => league.id %>
-        <br>
+      <tr>
+        <td> <%= league.league_name %></td>
+        <td><%= link_to 'View Rounds', :controller => :rounds , :action => :view_rounds , :league_id => league.id %></td>
+        <td><%= link_to 'View Predictions', :controller => :predictions , :action => :view_predictions , :league_id => league.id %></td>
+      </tr>
      <% end %> 
-   </tr>
 </table>
  <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
