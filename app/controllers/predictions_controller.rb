@@ -1,4 +1,9 @@
 class PredictionsController < ApplicationController
+  def view_predictions
+    @predictions=Prediction.where(:selected_league_id => params[:league_id])
+    @league=League.find(params[:league_id]).league_name
+  end
+
   def create
   	# render plain: params.inspect
   	@prediction = Prediction.new(prediction_params)

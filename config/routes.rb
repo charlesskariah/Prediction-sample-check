@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'predictions/delete'
 
+  get 'predictions/view_predictions'
+
   get 'leagues/view_leagues'
   get 'leagues/join_league'
   get 'matches/view_matches'
