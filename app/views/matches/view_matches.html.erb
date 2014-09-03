@@ -1,3 +1,4 @@
+<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
 <% 
    if current_user.has_joined_league params[:round_id] 
 	link_to_text = "Predict"
@@ -48,5 +49,3 @@
   <% end %>
 <% end %>
 </table>
-
-<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
