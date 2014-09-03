@@ -6,7 +6,6 @@
   <tr>
     <td><%= league.league_name %></td>
     <td><%= link_to 'join to predict', :controller => :leagues , :action => :join_league , :id => league.id %></td>
-    <td><%= link_to 'View Rounds', :controller => :rounds , :action => :view_rounds , :league_id => league.id %></td>
   </tr>
 </table>
     <% end %>
