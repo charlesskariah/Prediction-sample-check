@@ -203,11 +203,8 @@ DEPENDENCIES
   carmen-rails (~> 1.0.0)
   coffee-rails (~> 4.0.0)
   devise
-<<<<<<< HEAD
   execjs
-=======
   foreman
->>>>>>> 6b185ce0ce5561540524c28088c64cc6e85579f8
   high_voltage (~> 2.2.1)
   jbuilder (~> 2.0)
   jquery-rails
