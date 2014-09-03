@@ -6,6 +6,7 @@ namespace :user_score do
   	predictions  = Prediction.where(match_id: match.id)
   	predictions.each do |prediction |
   		points = 0 
+      total_points = 0
   		predicted_score_for_club1 = prediction.club1_predicted_score
   		predicted_score_for_club2 = prediction.club2_predicted_score
   		actual_score_for_club1 = match.club_1_score
@@ -55,7 +56,12 @@ namespace :user_score do
               prediction.margin = 0
             end
             prediction.points = points
+            selected_league =  SelectedLeague.find(prediction.selected_league_id)
+            selected_league.total_points += points
+            selected_league.save
             prediction.save
+             p "=========="
+            p selected_league.total_points
         end
   	end
 
