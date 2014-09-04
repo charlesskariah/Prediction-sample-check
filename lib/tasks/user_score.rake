@@ -60,8 +60,7 @@ namespace :user_score do
             selected_league.total_points += points
             selected_league.save
             prediction.save
-             p "=========="
-            p selected_league.total_points
+             
         end
   	end
 

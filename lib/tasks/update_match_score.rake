@@ -50,9 +50,10 @@ namespace :update_match_score do
 		parsed_result = JSON.parse(result)
 		error = parsed_result['ERROR']
 		if error == "OK"
-			match_results = parsed_result['matches']
+			return parsed_result['matches']
 		else
-			abort("Error!! "+error)
+			puts "Error!! "+error
+			return false
 		end
 	end
 
@@ -68,10 +69,14 @@ namespace :update_match_score do
 			end
 		else
 			result = Match.where(:club_1_id => club2_id.to_i, :club_2_id => club1_id.to_i, :match_date => date).to_a
-			match_to_update = result.first
-			if match_to_update.update(:club_1_score => club2_score.to_i, :club_2_score => club1_score.to_i)
-				puts "Updated Match "+match_to_update.to_s
-				$update_count += 1
+			if(!result.empty?)
+				match_to_update = result.first
+				if match_to_update.update(:club_1_score => club2_score.to_i, :club_2_score => club1_score.to_i)
+					puts "Updated Match "+match_to_update.to_s
+					$update_count += 1
+				end
+			else
+				puts "Match not found!!! \n\n"
 			end
 		end
 	end
@@ -125,7 +130,11 @@ namespace :update_match_score do
   	def update_match_results_for_dates date_arr
 		date_arr.each do |date|
 			match_results = search_result_match date
-			count = process_match_data match_results
+			if !match_results
+				puts ""
+			else
+				process_match_data match_results 
+			end
 		end
 		puts $update_count.to_s+" Updated!! \n\n"
 	end
