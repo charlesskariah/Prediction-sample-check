@@ -52,7 +52,7 @@ namespace :update_match_score do
 		if error == "OK"
 			match_results = parsed_result['matches']
 		else
-			abort("Error!! "+error)
+			puts "Error!! "+error+"\n"
 		end
 	end
 
@@ -69,9 +69,13 @@ namespace :update_match_score do
 		else
 			result = Match.where(:club_1_id => club2_id.to_i, :club_2_id => club1_id.to_i, :match_date => date).to_a
 			match_to_update = result.first
-			if match_to_update.update(:club_1_score => club2_score.to_i, :club_2_score => club1_score.to_i)
-				puts "Updated Match "+match_to_update.to_s
-				$update_count += 1
+			if(!result.empty?)
+				if match_to_update.update(:club_1_score => club2_score.to_i, :club_2_score => club1_score.to_i)
+					puts "Updated Match "+match_to_update.to_s
+					$update_count += 1
+				end
+			else
+				puts "Match details not found!!"
 			end
 		end
 	end
