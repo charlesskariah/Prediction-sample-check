@@ -4,8 +4,6 @@ class LeaguesController < ApplicationController
     @joined_leagues= current_user.leagues
     user_id = current_user.id
     @unjoined_leagues = @leagues - @joined_leagues
-     p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-     p @joined_leagues
   end
 
   def join_league
