@@ -13,11 +13,9 @@
   <th>Joined-Leagues</th> 
 		<% @joined_leagues.each do |league|%>
       <tr>
-        <td> <%= league.league_name %></td>
-        <td><%= link_to 'View Rounds', :controller => :rounds , :action => :view_rounds , :league_id => league.id %></td>
+        <td><%= league.league_name %></td>
+        <td><%= link_to 'Enter the League', :controller => :rounds , :action => :view_rounds , :league_id => league.id %></td>
         <td><%= link_to 'View Predictions', :controller => :predictions , :action => :view_predictions , :league_id => league.id %></td>
-        <td><%#=SelectedLeague.where(league_id: league.id and user_id: current_user.id).total_points %></td>
-
       </tr>
-     <% end %> 
+      <% end %> 
 </table>

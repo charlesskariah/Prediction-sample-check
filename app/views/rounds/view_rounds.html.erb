@@ -1,8 +1,10 @@
 <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+<h2>Name :<%= @user_name %></h2></br>
+<h2>Your Points : <%= @league_total_points %></h2>
 <h1>Rounds</h1>
 <table bgcolor="#B2BEB5">
   <tr>
-    <td><b>Weeks</b></td>
+    <td><b>Select the Week</b></td>
   </tr>
   <% @rounds.each do|round|%>
   <tr>
