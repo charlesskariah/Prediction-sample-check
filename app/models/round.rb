@@ -3,10 +3,12 @@ class Round < ActiveRecord::Base
   belongs_to :league
 
   def previous_round
-  	league.upcoming_round.try(:id) - 1 if league.upcoming_round
+    #TODO change previous round logic
+    Round.where("id < ?", id).order("id desc").first
   end
 
   def next_round
-  	league.upcoming_round.try(:id) + 1 if league.upcoming_round
+    #TODO change previous round logic
+    Round.where("id > ?", id).order(:id).first
   end
 end
