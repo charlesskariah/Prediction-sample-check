@@ -9,7 +9,7 @@
     <% @joined_leagues.each do |league|%>
       <tr>
         <td><span class="label label-default">Joined</span></td>
-        <td><%= link_to league.league_name , :controller => :rounds , :action => :view_rounds , :league_id => league.id %></td>
+        <td><%= link_to league.league_name , :controller => :matches , :action => :view_matches, :league_id => league.id, :round_id => league.upcoming_round.try(:id) %></td>
         <td></td>
       </tr>
     <% end %>
