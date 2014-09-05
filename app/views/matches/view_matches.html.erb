@@ -1,13 +1,3 @@
-
-<%
-   if current_user.has_joined_league params[:round_id]
-  link_to_text = "Predict"
-  link_to_url  = ""
-   else
-    link_to_text = "Join to Predict"
-    link_to_url = ""
-   end
-%>
 <% round_id = params[:round_id] %>
 <% round = Round.find(round_id) %>
 
