@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= link_to 'Log out', destroy_user_session_path, method: :delete %></br>
 <%= link_to 'Home Page' ,leagues_view_leagues_path, method: :get %>
 <% 
@@ -8,45 +9,57 @@
    	link_to_text = "Join to Predict"
    	link_to_url = ""
    end  
+=======
+<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+<%
+  if current_user.has_joined_league params[:round_id]
+    link_to_text = "Predict"
+    link_to_url  = ""
+  else
+    link_to_text = "Join to Predict"
+    link_to_url = ""
+  end
+>>>>>>> 234a3ff87616e21b6a30c7b51f9e3cbcd0f6715c
 %>
 
 <h1> Matches </h1>
-<table border=0>	
-  <div class='message'> <%= params[:notice] %> </div> <br /> 
+<table border=0>
+  <div class='message'> <%= params[:notice] %> </div> <br />
   <% round_id = params[:round_id] %>
   <% @matches.each do |match| %>
-  <% prediction = match.user_prediction(current_user) || @prediction %>
-  <%= form_for(prediction ) do |f| %>
-  	  <%= hidden_field_tag(:round_id,  round_id) %>
-  	  <%= f.hidden_field(:match_id, :value => match.id) %>
-  	  <%= f.hidden_field(:selected_league_id , :value => @selected_league.id) %>
-  	  <tr>
-  	  	<td colspan=3> 
-  	  		<i> <%= I18n.l match.match_date %> <%= I18n.l match.match_time %> </i> 
-  	  	</td>
-	  </tr>
-	  <tr>
-	  	<td>
-	  		<%= match.club_1.club_name %>   	  	
-	  	</td>
-	  	<td>
-	  		<%= f.number_field(:club1_predicted_score, {in: 0..20, step: 1}) %>
-	  	</td>
-	  	<td>
-	  		<%= f.number_field(:club2_predicted_score, {in: 0..20, step: 1}) %>
-	  	</td>
-	  	<td>	 
-	  		<%= match.club_2.club_name %> 		
-	  	</td>
-	  	<td>
-	  		  <%= f.submit %> 
-	  	</td>
-	  	<tr>
-	  		<td colspan=3>
-	  			.
-	  		</td>
-	  	</tr>
-	  </tr>
+    <% prediction = match.user_prediction(current_user) || @prediction %>
+    <%= form_for(prediction ) do |f| %>
+      <%= hidden_field_tag(:round_id,  round_id) %>
+      <%= f.hidden_field(:match_id, :value => match.id) %>
+      <%= f.hidden_field(:selected_league_id , :value => @selected_league.id) %>
+      <tr>
+        <td colspan=3>
+          <i> <%= I18n.l match.match_date %> <%= I18n.l match.match_time %> </i>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= match.club_1.club_name %>
+        </td>
+        <td>
+          <%= f.number_field(:club1_predicted_score, {in: 0..20, step: 1}) %>
+        </td>
+        <td>
+          <%= f.number_field(:club2_predicted_score, {in: 0..20, step: 1}) %>
+        </td>
+        <td>
+          <%= match.club_2.club_name %>
+        </td>
+        <td>
+          <%= f.submit %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan=3>
+          .
+        </td>
+      </tr>
+    </tr>
   <% end %>
 <% end %>
 </table>

@@ -7,9 +7,9 @@
     <td><b>Select the Week</b></td>
   </tr>
   <% @rounds.each do|round|%>
-  <tr>
-    <td><b><i><%= round.round_name %> --</b></i></td>
-    <td><i><%= link_to 'View Matches',{:controller => :matches , :action => :view_matches, :round_id => round.id}, 'data-no-turbolink' => true %></i></td>
-   </tr>
+    <tr>
+      <td><b><i><%= round.round_name %> --</b></i></td>
+      <td><i><%= link_to 'View Matches', {:controller => :matches , :action => :view_matches, :round_id => round.id}, 'data-no-turbolink' => true %></i></td>
+    </tr>
   <% end %>
 </table>

@@ -3,19 +3,19 @@
 <table>
   <th>Leagues</th>
     <% @unjoined_leagues.each do |league| %>
-  <tr>
-    <td><%= league.league_name %></td>
-    <td><%= link_to 'join to predict', :controller => :leagues , :action => :join_league , :id => league.id %></td>
-  </tr>
-</table>
+      <tr>
+        <td><%= league.league_name %></td>
+        <td><%= link_to 'join to predict', :controller => :leagues , :action => :join_league , :id => league.id %></td>
+      </tr>
     <% end %>
+</table>
 <table>
-  <th>Joined-Leagues</th> 
-		<% @joined_leagues.each do |league|%>
+  <th>Joined-Leagues</th>
+    <% @joined_leagues.each do |league|%>
       <tr>
         <td><%= league.league_name %></td>
         <td><%= link_to 'Enter the League', :controller => :rounds , :action => :view_rounds , :league_id => league.id %></td>
         <td><%= link_to 'View Predictions', :controller => :predictions , :action => :view_predictions , :league_id => league.id %></td>
       </tr>
-      <% end %> 
+    <% end %>
 </table>
