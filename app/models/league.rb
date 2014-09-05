@@ -6,6 +6,6 @@ class League < ActiveRecord::Base
   has_and_belongs_to_many :clubs
 
   def upcoming_round
-  	Match.where("match_date >= ?", Date.today).order(:match_date).first.try(:round)
+    Match.where("match_date >= ? AND round_id IN(?)", Date.today, rounds.map(&:id)).order(:match_date).first.try(:round)
   end
 end
