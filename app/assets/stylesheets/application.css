@@ -13,8 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.message
-{
-	color: red;
-	font-size: 18px;
+.message{
+  color: red;
+  font-size: 18px;
 }

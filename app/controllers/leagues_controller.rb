@@ -7,9 +7,9 @@ class LeaguesController < ApplicationController
   end
 
   def join_league
-    @selected_league = SelectedLeague.new(status: "active" , user_id: current_user.id , league_id: params[:id] ,total_points: 0) 
-    @selected_league.save 
+    @selected_league = SelectedLeague.new(status: "active" , user_id: current_user.id , league_id: params[:id] ,total_points: 0)
+    @selected_league.save
     flash[:notice] = "Succesfully joined "
     redirect_to :action => 'view_leagues'
-    end
+  end
 end
