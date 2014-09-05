@@ -1,7 +1,8 @@
 class MatchesController < ApplicationController
   def view_matches
-    @matches = Match.where(:round_id => params[:round_id]).order(:match_date)
-    @league = Round.find(params[:round_id]).league
+  	round_id = params[:round_id]
+    @matches = Match.where(:round_id => round_id).order(:match_date)
+    @league = Round.find(round_id).league
     @selected_league = SelectedLeague.where(league_id: @league.id, user_id: current_user.id).to_a.first
     @prediction = Prediction.new
   end
