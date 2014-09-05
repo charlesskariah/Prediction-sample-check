@@ -33,4 +33,17 @@ class User < ActiveRecord::Base
     round = Round.find(round_id)
     self.leagues.exists?round.league
   end
+
+  def plf_score
+    selected_leagues.map{|l| l.total_points.to_i}.inject(:+)
+  end
+
+  def name
+    if firstname.present? || lastname.present?
+      "#{firstname} #{lastname}"
+    else
+      email
+    end
+  end
+
 end
