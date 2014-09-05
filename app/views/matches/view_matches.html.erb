@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%= link_to 'Log out', destroy_user_session_path, method: :delete %></br>
 <%= link_to 'Home Page' ,leagues_view_leagues_path, method: :get %>
 <% 
@@ -9,7 +8,6 @@
    	link_to_text = "Join to Predict"
    	link_to_url = ""
    end  
-=======
 <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
 <%
   if current_user.has_joined_league params[:round_id]
@@ -19,7 +17,6 @@
     link_to_text = "Join to Predict"
     link_to_url = ""
   end
->>>>>>> 234a3ff87616e21b6a30c7b51f9e3cbcd0f6715c
 %>
 
 <h1> Matches </h1>
