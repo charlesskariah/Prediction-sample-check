@@ -1,12 +1,12 @@
 
-<% 
-   if current_user.has_joined_league params[:round_id] 
+<%
+   if current_user.has_joined_league params[:round_id]
   link_to_text = "Predict"
-  link_to_url  = "" 
+  link_to_url  = ""
    else
     link_to_text = "Join to Predict"
     link_to_url = ""
-   end  
+   end
 %>
 <% round_id = params[:round_id] %>
 <% round = Round.find(round_id) %>
@@ -15,9 +15,11 @@
 
 <table class="table" border=0>
   <tr>
-  <th align="left"><%= link_to "Previous Week", :controller => :matches , :action => :view_matches, :round_id => round.previous_round.try(:id), :league_id => @league.id, 'data-no-turbolink' => true %></th>
+  <th align="left"><%= link_to "Previous Week", :controller => :matches , :action => :view_matches,
+    :round_id => @league.upcoming_round.try(:previous_round).try(:id), :league_id => @league.id, 'data-no-turbolink' => true %></th>
   <th colspan=3><center><%= round.round_name %></center></th>
-  <th align="right"><%= link_to "Next Week", :controller => :matches , :action => :view_matches, :round_id => round.next_round.try(:id), :league_id => @league.id, 'data-no-turbolink' => true %></th>
+  <th align="right"><%= link_to "Next Week", :controller => :matches , :action => :view_matches,
+    :round_id => @league.upcoming_round.try(:next_round).try(:id), :league_id => @league.id, 'data-no-turbolink' => true %></th>
   </tr>
   <% @matches.each do |match| %>
     <% prediction = match.user_prediction(current_user) || @prediction %>
@@ -47,7 +49,7 @@
           <%= f.submit %>
         </td>
       </tr>
-      
+
   <% end %>
 <% end %>
 </table>
