@@ -1,15 +1,15 @@
-<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-<h2>Name :<%= @user_name %></h2></br>
-<h2>Your Points : <%= @league_total_points %></h2>
-<h1>Rounds</h1>
+
+<h3>Your Points for <%=@league.league_name%> : <%= @league_total_points %></h3>
+<h3>Rounds</h3>
 <table bgcolor="#B2BEB5">
   <tr>
     <td><b>Select the Week</b></td>
   </tr>
+  <% league = League.find(params['league_id']) %>
   <% @rounds.each do|round|%>
-  <tr>
-    <td><b><i><%= round.round_name %> --</b></i></td>
-    <td><i><%= link_to 'View Matches',{:controller => :matches , :action => :view_matches, :round_id => round.id}, 'data-no-turbolink' => true %></i></td>
-   </tr>
+    <tr>
+      <td><b><i><%= round.round_name %> --</b></i></td>
+      <td><i><%= link_to 'View Matches', {:controller => :matches , :action => :view_matches, :round_id => round.id, :league_id => league.id}, 'data-no-turbolink' => true %></i></td>
+    </tr>
   <% end %>
 </table>

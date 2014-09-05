@@ -1,13 +1,11 @@
-<h1>Predictions of <%= @league %></h1>
+<h1>Predictions of <%= @league.league_name %></h1>
 <table bgcolor="#82FA58">
   <% @predictions.each do|prediction|%>
-  <tr>
-  	<td>
-    <td><b><i><%= Club.find(Match.find(prediction.match_id).club_1_id).club_name %> <%= prediction.club1_predicted_score %> -</b></i></td>
-    <td><b><i> <%= prediction.club2_predicted_score %> <%= Club.find(Match.find(prediction.match_id).club_2_id).club_name %></b></i></td>
-    <td><b><%= I18n.l Match.find(prediction.match_id).match_date %></b></td>
-    <td><b><%= I18n.l Match.find(prediction.match_id).match_time %></b></td>
-    <tr></tr>
-   </tr>
+    <tr>
+      <td><b><i><%= Club.find(Match.find(prediction.match_id).club_1_id).club_name %> <%= prediction.club1_predicted_score %> -</b></i></td>
+      <td><b><i> <%= prediction.club2_predicted_score %> <%= Club.find(Match.find(prediction.match_id).club_2_id).club_name %></b></i></td>
+      <td><b><%= I18n.l Match.find(prediction.match_id).match_date %></b></td>
+      <td><b><%= I18n.l Match.find(prediction.match_id).match_time %></b></td>
+     </tr>
   <% end %>
 </table>

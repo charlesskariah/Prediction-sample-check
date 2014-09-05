@@ -1,23 +1,8 @@
 source 'https://rubygems.org'
 
-
-
-gem 'omniauth-facebook'
-
-# gem 'jquery-turbolinks'
-
-gem 'carmen-rails', '~> 1.0.0'
-
-gem 'high_voltage', '~> 2.2.1'
-gem 'execjs'
-gem 'therubyracer'
-
-gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
-
-gem 'taps'
 
 gem 'pg'
 # Use SCSS for stylesheets
@@ -33,6 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+# gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -47,23 +33,31 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 # gem 'unicorn'
 
-gem 'rails_12factor', group: :production
-  
-
-group :development, :test do
-gem 'foreman'
-end
-
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+#
+gem 'rails_12factor', group: :production
+gem 'carmen-rails', '~> 1.0.0'
+gem 'high_voltage', '~> 2.2.1'
+gem 'execjs'
+gem 'therubyracer'
+gem 'omniauth-facebook'
+gem 'devise'
+gem 'taps'
+gem 'newrelic_rpm'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
+group :development, :test do
+  gem 'foreman'
+end
 
 group :development do
-	gem 'binding_of_caller'
-	gem 'pry'
-	gem 'pry-rails'
-	gem 'pry-byebug'
+  gem 'binding_of_caller'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end

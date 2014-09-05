@@ -1,7 +1,7 @@
 namespace :user_score do
   desc "TODO"
   task task1: :environment do
-  	matches_updated_today = Match.where("updated_at >= ?", Time.zone.now.beginning_of_day)
+  	matches_updated_today = Match.where("updated_at <= ?", Time.zone.now.beginning_of_day)
   	matches_updated_today.each do |match|
   	predictions  = Prediction.where(match_id: match.id)
   	predictions.each do |prediction |
@@ -58,9 +58,12 @@ namespace :user_score do
             prediction.points = points
             selected_league =  SelectedLeague.find(prediction.selected_league_id)
             selected_league.total_points += points
-            selected_league.save
-            prediction.save
-             
+            if selected_league.save
+              puts "Leaugue updated"
+            end
+            if prediction.save
+              puts "Prediction Updated"
+            end             
         end
   	end
 
