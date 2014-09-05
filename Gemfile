@@ -1,24 +1,5 @@
 source 'https://rubygems.org'
 
-
-gem 'newrelic_rpm'
-
-gem 'omniauth-facebook'
-
-# gem 'jquery-turbolinks'
-
-gem 'carmen-rails', '~> 1.0.0'
-
-gem 'high_voltage', '~> 2.2.1'
-gem 'execjs'
-gem 'therubyracer'
-
-gem 'devise'
-
-gem 'bootstrap-sass'
-
-gem 'autoprefixer-rails'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
@@ -66,6 +47,9 @@ gem 'therubyracer'
 gem 'omniauth-facebook'
 gem 'devise'
 gem 'taps'
+gem 'newrelic_rpm'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 group :development, :test do
   gem 'foreman'
