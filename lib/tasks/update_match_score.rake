@@ -49,10 +49,12 @@ namespace :update_match_score do
 		result = search_result_json date
 		parsed_result = JSON.parse(result)
 		error = parsed_result['ERROR']
+		ipaddress = parsed_result['IP']
 		if error == "OK"
 			return parsed_result['matches']
 		else
 			puts "Error!! "+error
+			puts "Ip address: " + ipaddress
 			return false
 		end
 	end
