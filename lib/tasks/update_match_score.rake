@@ -49,10 +49,12 @@ namespace :update_match_score do
 		result = search_result_json date
 		parsed_result = JSON.parse(result)
 		error = parsed_result['ERROR']
+		ipaddress = parsed_result['IP']
 		if error == "OK"
 			return parsed_result['matches']
 		else
 			puts "Error!! "+error
+			puts "Ip address: " + ipaddress
 			return false
 		end
 	end
@@ -65,6 +67,7 @@ namespace :update_match_score do
 			match_to_update = result.first
 			if match_to_update.update(:club_1_score => club1_score.to_i, :club_2_score => club2_score.to_i)
 				puts "Updated Match -- "+match_to_update.inspect+"\n\n"
+				puts "match = Match.find(#{match_to_update.id});match.update(:club_1_score => #{club1_score.to_i}, :club_2_score => #{club2_score.to_i})"
 				$update_count += 1
 			end
 		else

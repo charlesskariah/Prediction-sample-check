@@ -18,7 +18,6 @@ class PredictionsController < ApplicationController
         redirect_to :controller => 'matches', :action => 'view_matches',notice: "Prediction is not possible", round_id: round_id
       end
   end
-
   def update
       round_id = params[:round_id]
       @prediction = Prediction.find(params[:id])
