@@ -1,7 +1,27 @@
 namespace :user_score do
   desc "TODO"
   task task1: :environment do
-  	matches_updated_today = Match.where("updated_at <= ?", Time.zone.now.beginning_of_day)
+    def get_all_match_dates
+    matches = Match.all
+      match_dates = []
+      matches.each do |match|
+        match_dates<<match.match_date
+      end
+      match_dates.uniq
+    end
+
+    def dates_less_than(date, date_arr)
+      result_array = []
+      date_arr.each do |d|
+        result_array<<d if( (d <=> date) == -1  || (d <=> date) == 0 )
+      end
+      result_array
+    end
+
+  	today = Time.now.to_date
+    match_dates = get_all_match_dates
+    previous_dates_array = dates_less_than(today, match_dates)
+    matches_updated_today = Match.where(:match_date => previous_dates_array)
   	matches_updated_today.each do |match|
   	predictions  = Prediction.where(match_id: match.id)
   	predictions.each do |prediction |
