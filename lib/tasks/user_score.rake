@@ -23,7 +23,7 @@ namespace :user_score do
     previous_dates_array = dates_less_than(today, match_dates)
     matches_updated_today = Match.where(:match_date => previous_dates_array)
   	matches_updated_today.each do |match|
-  	predictions  = Prediction.where(match_id: match.id)
+     predictions  = Prediction.where("match_id = ? AND  is_predicted = ? ", match.id ,false)
   	predictions.each do |prediction |
   		points = 0 
       total_points = 0
@@ -83,7 +83,9 @@ namespace :user_score do
             end
             if prediction.save
               puts "Prediction Updated"
-            end             
+            end   
+            prediction.is_predicted = true     
+            prediction.save     
         end
   	end
 
