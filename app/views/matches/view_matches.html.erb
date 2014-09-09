@@ -1,6 +1,5 @@
 <% round_id = params[:round_id] %>
 <% round = Round.find_by_id(round_id) || @league.upcoming_round %>
-
 <div class='message'> <%= params[:notice] %> </div> <br />
 <table class="table" border=0>
   <% if @matches.blank? || round.blank? %>
