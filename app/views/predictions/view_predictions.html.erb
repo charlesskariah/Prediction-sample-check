@@ -1,8 +1,8 @@
-<h1>Predictions of <%= @league.league_name %></h1>
+<h3>Predictions</h3>
 <table class="table">
   <% @predictions.each do|prediction|%>
     <tr>
-      <td><b><i><%= Club.find(Match.find(prediction.match_id).club_1_id).club_name %></b></i></td> 
+      <td><b><i><%= Club.find(Match.find(prediction.match_id).club_1_id).club_name %></b></i></td>
       	<td class ="success"><b><i><%= prediction.club1_predicted_score %> </b></i></td>
       	<td><b>-</b></td>
       <td class ="success"><b><i> <%= prediction.club2_predicted_score %> </b></i></td>

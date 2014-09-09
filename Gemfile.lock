@@ -39,6 +39,7 @@ GEM
     byebug (2.7.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
+    cancancan (1.9.2)
     carmen (1.0.1)
       unicode_utils (~> 1.4.0)
     carmen-rails (1.0.1)
@@ -207,6 +208,7 @@ DEPENDENCIES
   autoprefixer-rails
   binding_of_caller
   bootstrap-sass
+  cancancan (~> 1.9)
   carmen-rails (~> 1.0.0)
   coffee-rails (~> 4.0.0)
   devise

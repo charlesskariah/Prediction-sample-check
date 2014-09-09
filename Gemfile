@@ -50,6 +50,7 @@ gem 'taps'
 gem 'newrelic_rpm'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'cancancan', '~> 1.9'
 
 group :development, :test do
   gem 'foreman'
