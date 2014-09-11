@@ -6,9 +6,9 @@
     <tr><td>No matches found.</td></tr>
   <% else %>
   <tr>
-    <th align="left"><%= link_to "Previous Week", matches_view_matches_path(:round_id => round.try(:previous_round).try(:id), :league_id => @league.id)%></th>
+    <th align="left"><%= link_to "Previous", matches_view_matches_path(:round_id => round.try(:previous_round).try(:id), :league_id => @league.id)%></th>
     <th colspan=3><center><%= round.round_name %></center></th>
-    <th align="right"><%= link_to "Next Week", matches_view_matches_path(:round_id => round.try(:next_round).try(:id), :league_id => @league.id) %></th>
+    <th align="right"><%= link_to "Next", matches_view_matches_path(:round_id => round.try(:next_round).try(:id), :league_id => @league.id) %></th>
   </tr>
     <% @matches.each do |match| %>
       <% prediction = match.user_prediction(current_user) || @prediction %>

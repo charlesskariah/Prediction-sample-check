@@ -32,7 +32,8 @@ namespace :user_score do
   		actual_score_for_club1 = match.club_1_score
   		actual_score_for_club2 = match.club_2_score
   		predicted_score_diffrence = predicted_score_for_club1 - predicted_score_for_club2 
-  		actual_score_diffrence = actual_score_for_club1 - actual_score_for_club2
+  		p predicted_score_diffrence
+      actual_score_diffrence = actual_score_for_club1 - actual_score_for_club2
 	  		if actual_score_for_club1 > actual_score_for_club2
 	  			winner = Club.find(match.club_1_id).club_name
 	  		elsif actual_score_for_club2 > actual_score_for_club1
