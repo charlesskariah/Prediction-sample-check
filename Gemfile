@@ -51,6 +51,7 @@ gem 'newrelic_rpm'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'cancancan', '~> 1.9'
+gem 'mandrill-rails'
 
 group :development, :test do
   gem 'foreman'
