@@ -13,8 +13,8 @@ address: "smtp.mandrillapp.com",
 port: 587,
 authentication: "plain",
 enable_starttls_auto: true,
-user_name: "hannah763611@gmail.com",
-password: "-6rTD9tUBJmbCukrt-J9Mw"
+user_name:  ENV["MANDRILL_USERNAME"],
+password: ENV["MANDRILL_PASSWORD"]
 }
 
    
