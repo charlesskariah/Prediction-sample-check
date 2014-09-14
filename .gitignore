@@ -20,3 +20,5 @@ Procfile
 .rbenv-gemsets
 *~
 .swp
+
+config/database.yml
