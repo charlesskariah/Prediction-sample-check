@@ -18,3 +18,5 @@ Procfile
 
 .ruby-version
 .rbenv-gemsets
+*~
+.swp
