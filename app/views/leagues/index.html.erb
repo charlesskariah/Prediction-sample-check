@@ -4,7 +4,7 @@
     <% @joined_leagues.each do |league|%>
       <tr>
         <td><span class="label label-success">Joined</span></td>
-        <td><%= link_to league.league_name, matches_view_matches_path(:round_id => league.upcoming_round.try(:id), :league_id => league.id) %></td>
+        <td><%= link_to league.league_name, matches_index_path(:round_id => league.upcoming_round.try(:id), :league_id => league.id) %></td>
         <td></td>
       </tr>
     <% end %>

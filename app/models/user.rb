@@ -1,15 +1,14 @@
 class User < ActiveRecord::Base
+  has_many :selected_leagues
+  has_many :leagues, :through => :selected_leagues
 
-  validates :firstname, :username, :country, :dob, presence: true
+  validates :firstname, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   devise :omniauthable, :omniauth_providers => [:facebook]
-
-  has_many :selected_leagues
-  has_many :leagues, :through => :selected_leagues
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -46,6 +45,10 @@ class User < ActiveRecord::Base
     else
       email
     end
+  end
+
+  def is_admin?
+    self.is_admin
   end
 
 end

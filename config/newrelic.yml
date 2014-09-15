@@ -192,7 +192,7 @@ development:
   <<: *default_settings
   # Turn on communication to New Relic service in development mode
   monitor_mode: true
-  app_name: My Application (Development)
+  app_name: ProLeagueFantasy (Development)
 
   # Rails Only - when running in Developer Mode, the New Relic Agent will
   # present performance information on the last 100 transactions you have
@@ -206,6 +206,8 @@ test:
   # It almost never makes sense to turn on the agent when running
   # unit, functional or integration tests or the like.
   monitor_mode: false
+  app_name: ProLeagueFantasy (Test)
+
 
 # Turn on the agent in production for 24x7 monitoring. NewRelic
 # testing shows an average performance impact of < 5 ms per
@@ -214,6 +216,8 @@ test:
 production:
   <<: *default_settings
   monitor_mode: true
+  app_name: ProLeagueFantasy (Production)
+
 
 # Many applications have a staging environment which behaves
 # identically to production. Support for that environment is provided
@@ -221,4 +225,5 @@ production:
 staging:
   <<: *default_settings
   monitor_mode: true
-  app_name: My Application (Staging)
+  app_name: ProLeagueFantasy (Staging)
+

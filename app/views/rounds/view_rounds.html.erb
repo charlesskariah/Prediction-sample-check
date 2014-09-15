@@ -1,4 +1,3 @@
-
 <!-- <h3>Your Points for <%=@league.league_name%> : <%= @league_total_points %></h3> -->
 <h3>Rounds</h3>
 <table bgcolor="#B2BEB5">
@@ -6,10 +5,16 @@
     <td><b>Select the Week</b></td>
   </tr>
   <% league = League.find(params['league_id']) %>
-  <% @rounds.each do|round|%>
+  <% @rounds.each do |round| %>
     <tr>
       <td><b><i><%= round.round_name %> --</b></i></td>
-      <td><i><%= link_to 'View Matches', {:controller => :matches , :action => :view_matches, :round_id => round.id, :league_id => league.id}%></i></td>
+      <td><i><%= link_to 'View Matches', {:controller => :matches , :action => :index, :round_id => round.id, :league_id => league.id}%></i></td>
+      <td>
+        <b><i> <%= round.round_name %> -- </b></i>
+      </td>
+      <td>
+        <i><%= link_to 'View Matches', { :controller => :matches , :action => :view_matches, :round_id => round.id, :league_id => league.id } %></i>
+      </td>
     </tr>
   <% end %>
 </table>

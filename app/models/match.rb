@@ -17,4 +17,13 @@ class Match < ActiveRecord::Base
       end
     end
   end
+
+  def club1_name
+    club_1.club_name
+  end
+  
+  def club2_name
+    club_2.club_name
+  end
+
 end
