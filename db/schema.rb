@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915101621) do
+ActiveRecord::Schema.define(version: 20140915135444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140915101621) do
     t.integer  "round_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_time"
   end
 
   create_table "predictions", force: true do |t|
@@ -65,7 +66,7 @@ ActiveRecord::Schema.define(version: 20140915101621) do
   end
 
   create_table "rake_task_details", force: true do |t|
-    t.string   "last_used_time"
+    t.datetime "datetime"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
