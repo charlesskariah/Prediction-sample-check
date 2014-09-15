@@ -3,17 +3,26 @@
 <table class="table table-bordered">
     <% @joined_leagues.each do |league|%>
       <tr>
-        <td><span class="label label-success">Joined</span></td>
-        <td><%= link_to league.league_name, matches_view_matches_path(:round_id => league.upcoming_round.try(:id), :league_id => league.id) %></td>
-        <td></td>
+        <td>
+          <span class="label label-success">Joined</span>
+        </td>
+        <td>
+          <%= link_to league.league_name, matches_view_matches_path(:round_id => league.upcoming_round.try(:id), :league_id => league.id) %>
+        </td>
+        <td>
+        </td>
       </tr>
     <% end %>
-
     <% @unjoined_leagues.each do |league| %>
       <tr>
-        <td>  </td>
-        <td><%= league.league_name %></td>
-        <td><%= link_to 'Join to Predict', :controller => :leagues , :action => :join_league , :id => league.id %></td>
+        <td>  
+        </td>
+        <td>
+          <%= league.league_name %>
+        </td>
+        <td>
+          <%= link_to 'Join to Predict', :controller => :leagues , :action => :join_league , :id => league.id %>
+        </td>
       </tr>
     <% end %>
 </table>
