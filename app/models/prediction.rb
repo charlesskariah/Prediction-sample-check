@@ -8,7 +8,7 @@ class Prediction < ActiveRecord::Base
     current_match_time = Match.find(match_id).match_time
     current_match_date = Match.find(match_id).match_date
   	if current_match_date <= Date.today && current_match_time <  Time.now.utc
-  		errors.add(:base, "cannot predict ")
+  		errors.add(:base, "You prediction can't be created ")
     end	
   end
 end

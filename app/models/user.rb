@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :selected_leagues
+  has_many :leagues, :through => :selected_leagues
 
   validates :firstname, presence: true
   # Include default devise modules. Others available are:
@@ -7,9 +9,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   devise :omniauthable, :omniauth_providers => [:facebook]
-
-  has_many :selected_leagues
-  has_many :leagues, :through => :selected_leagues
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

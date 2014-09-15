@@ -1,9 +1,9 @@
 class PredictionsController < ApplicationController
 
   def view_predictions
-    selected_league_id=SelectedLeague.where('user_id =? AND league_id =?',current_user.id,params[:league_id]).first.id
-    @predictions=Prediction.where(:selected_league_id => selected_league_id)
-    @league=League.find(params[:league_id])
+    selected_league_id = SelectedLeague.where('user_id =? AND league_id =?',current_user.id,params[:league_id]).first.id
+    @predictions = Prediction.where(:selected_league_id => selected_league_id)
+    @league = League.find(params[:league_id])
   end
 
   def create
