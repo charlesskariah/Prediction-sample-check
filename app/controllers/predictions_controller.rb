@@ -34,7 +34,7 @@ class PredictionsController < ApplicationController
 
   private
   def prediction_params
-    params.require(:prediction).permit(:club1_predicted_score, :club2_predicted_score, :selected_league_id, :match_id, :is_predicted)
+    params.require(:prediction).permit(:club1_predicted_score, :club2_predicted_score, :selected_league_id, :match_id)
   end
 
 end

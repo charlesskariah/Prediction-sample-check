@@ -16,7 +16,6 @@
         <%= hidden_field_tag(:round_id,  round_id) %>
         <%= f.hidden_field(:match_id, :value => match.id) %>
         <%= f.hidden_field(:selected_league_id , :value => @selected_league.id) %>
-        <%= f.hidden_field(:is_predicted , :value => false) %>
         <tr>
           <td class= "success" colspan=5>
             <i> <%= I18n.l match.match_date %> <%= I18n.l match.match_time %> </i>
