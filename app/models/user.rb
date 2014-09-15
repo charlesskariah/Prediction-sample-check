@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  validates :firstname, :username, :country, :dob, presence: true
+  validates :firstname, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
     else
       email
     end
+  end
+
+  def is_admin?
+    self.is_admin
   end
 
 end

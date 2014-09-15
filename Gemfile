@@ -52,6 +52,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'cancancan', '~> 1.9'
 gem 'mandrill-rails'
+gem 'rails_admin'
 
 group :development, :test do
   gem 'foreman'
