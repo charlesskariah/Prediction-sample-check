@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'predictions/view_predictions'
-  get 'leagues/view_leagues'
+  get 'predictions/index'
+  get 'leagues/index'
   get 'leagues/join_league'
-  get 'matches/view_matches'
+  get 'matches/index'
   get 'rounds/view_rounds'
   get 'matches/test'
 
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   
   # You can have the root of your site routed with "root"
-  root 'leagues#view_leagues'
+  root 'leagues#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -9,7 +9,7 @@
   <% @rounds.each do|round|%>
     <tr>
       <td><b><i><%= round.round_name %> --</b></i></td>
-      <td><i><%= link_to 'View Matches', {:controller => :matches , :action => :view_matches, :round_id => round.id, :league_id => league.id}%></i></td>
+      <td><i><%= link_to 'View Matches', {:controller => :matches , :action => :index, :round_id => round.id, :league_id => league.id}%></i></td>
     </tr>
   <% end %>
 </table>
