@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'predictions/view_predictions'
   get 'leagues/view_leagues'
   get 'leagues/join_league'

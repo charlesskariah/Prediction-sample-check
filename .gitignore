@@ -18,3 +18,7 @@ Procfile
 
 .ruby-version
 .rbenv-gemsets
+*~
+.swp
+
+config/database.yml
