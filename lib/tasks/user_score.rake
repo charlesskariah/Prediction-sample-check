@@ -1,11 +1,11 @@
 namespace :user_score do
   desc "TODO"
   task task1: :environment do
-    raketask_last_executed = RakeTaskDetails.last
+    raketask_last_executed = RakeTaskDetails.where(name: 'user_score').last
     if raketask_last_executed.blank?
       raketask_last_executed_datetime = Match.first.start_time
     else
-      raketask_last_executed_datetime= raketask_last_executed.datetime
+      raketask_last_executed_datetime= raketask_last_executed.run_at
     end
     datetime_now = DateTime.parse(Time.now.to_s)
     matches_updated_today = Match.where(start_time: raketask_last_executed_datetime..datetime_now).order(:match_date)
@@ -70,8 +70,7 @@ namespace :user_score do
         end    
       end
     end
-    raketask = RakeTaskDetails.new
-    raketask.datetime = DateTime.parse(Time.now.to_s)
-    raketask.save
+    raketask = RakeTaskDetails.create(name: "user_score", run_at: DateTime.parse(Time.now.to_s))
+    p 'raketask details saved!!! ' if raketask.save
   end
 end
