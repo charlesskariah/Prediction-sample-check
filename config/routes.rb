@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   get 'rounds/view_rounds'
   get 'matches/test'
 
+
   resources :predictions, only: [:create, :update, :delete]
 
-  
+  resources :preferences
+   
   devise_for :users, :controllers => { registration: 'registrations', :omniauth_callbacks => "omniauth_callbacks"}
   # devise_scope :user do
   #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session

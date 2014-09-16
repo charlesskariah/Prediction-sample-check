@@ -5,9 +5,7 @@ class Prediction < ActiveRecord::Base
   belongs_to :match
 
   def check_for_matchdate
-    current_match_time = Match.find(match_id).match_time
-    current_match_date = Match.find(match_id).match_date
-  	if current_match_date <= Date.today && current_match_time <  Time.now.utc
+  	if match.start_time.past?
   		errors.add(:base, "You prediction can't be created ")
     end	
   end

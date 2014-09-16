@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909083517) do
+ActiveRecord::Schema.define(version: 20140915133534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140909083517) do
     t.integer  "round_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_time"
   end
 
   create_table "predictions", force: true do |t|
@@ -63,6 +64,13 @@ ActiveRecord::Schema.define(version: 20140909083517) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_predicted"
+  end
+
+  create_table "preferences", force: true do |t|
+    t.string   "time_zone"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "rounds", force: true do |t|

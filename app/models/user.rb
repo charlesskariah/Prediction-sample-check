@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :selected_leagues
   has_many :leagues, :through => :selected_leagues
+  has_many :preferences
 
   validates :firstname, presence: true
   # Include default devise modules. Others available are:
