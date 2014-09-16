@@ -60,7 +60,9 @@ gem 'mandrill-rails'
 gem 'rails_admin'
 
 group :development, :test do
+  gem 'rspec-rails'
   gem 'foreman'
+  gem 'factory_girl_rails'
 end
 
 group :development do

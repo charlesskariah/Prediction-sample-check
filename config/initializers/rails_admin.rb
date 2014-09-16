@@ -10,7 +10,7 @@ RailsAdmin.config do |config|
 
   ## == Cancan ==
   config.authorize_with :cancan
-   config.current_user_method &:current_user
+  config.current_user_method &:current_user
 
 
   ## == PaperTrail ==
@@ -41,7 +41,7 @@ RailsAdmin.config do |config|
       field :club2_name
       field :match_date do
         visible do
-          
+
         end
       end
       field :match_time
@@ -50,5 +50,4 @@ RailsAdmin.config do |config|
       field :round_id
     end
   end
-
 end
