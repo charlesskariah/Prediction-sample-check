@@ -3,15 +3,14 @@
 Devise.setup do |config|
 
   # OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
-  config.omniauth :facebook, "282535961932879", "43a9fc320df66fb64f6bd597e89aba02", {provider_ignores_state: true}
+  config.omniauth :facebook, '282535961932879', '43a9fc320df66fb64f6bd597e89aba02', { provider_ignores_state: true }
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   config.secret_key = 'f9094461930ae873cce235868696d40af9688d7d8e6c63855224dfee5f68b7d10a8b3881127be917fa57fe02b6908e9cb8d9795dec9d1d5a725d3890241893b9'
   # config.authentication_keys = [ :username ]
-  # config.case_insensitive_keys = [ :username ]  
+  # config.case_insensitive_keys = [ :username ]
   # config.strip_whitespace_keys = [ :username ]
-
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -47,12 +46,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :email ]
+  config.case_insensitive_keys = [:email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :email ]
+  config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the

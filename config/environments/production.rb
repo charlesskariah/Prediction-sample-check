@@ -1,23 +1,22 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_mailer.default_url_options = { :host => 'proleaguefantasy.herokuapp.com' }
-
+  config.action_mailer.default_url_options = { host: 'proleaguefantasy.herokuapp.com' }
 
   Rails.application.routes.default_url_options[:host] = 'proleaguefantasy.herokuapp.com'
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default charset: "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.mandrillapp.com",
+    address: 'smtp.mandrillapp.com',
     port: 587,
-    authentication: "plain",
+    authentication: 'plain',
     enable_starttls_auto: true,
-    user_name: ENV["MANDRILL_USERNAME"],
-    password: ENV["MANDRILL_PASSWORD"]
+    user_name: ENV['MANDRILL_USERNAME'],
+    password: ENV['MANDRILL_PASSWORD']
   }
 
   # Code is not reloaded between requests.
@@ -98,5 +97,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
 end

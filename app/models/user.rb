@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   end
 
   def plf_score
-    selected_leagues.map{ |l| l.total_points.to_i }.inject(:+)
+    selected_leagues.map { |l| l.total_points.to_i }.inject(:+)
   end
 
   def name

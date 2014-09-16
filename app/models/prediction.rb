@@ -6,6 +6,6 @@ class Prediction < ActiveRecord::Base
 
   def check_for_matchdate
     return unless match.start_time.past?
-      errors.add(:base, "You prediction can't be created ")
+    errors.add(:base, "You prediction can't be created ")
   end
 end

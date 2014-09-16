@@ -2,7 +2,6 @@ class LeaguesController < ApplicationController
   def index
     @leagues = League.all
     @joined_leagues = current_user.leagues
-    user_id = current_user.id
     @unjoined_leagues = @leagues - @joined_leagues
   end
 

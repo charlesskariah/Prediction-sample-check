@@ -6,11 +6,10 @@ class Ability
     # can :dashboard              # grant access to the dashboard
     # Define abilities for the passed in user here. For example:
     # user ||= User.new # guest user (not logged in)
-    if user.admin?
+    return unless user.admin?
       can :access, :rails_admin
       can :manage, Match
       can :dashboard
-    end
 
     # The first argument to `can` is the action you are giving the user
     # permission to do.

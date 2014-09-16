@@ -12,7 +12,6 @@ RailsAdmin.config do |config|
   config.authorize_with :cancan
   config.current_user_method &:current_user
 
-
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
@@ -35,19 +34,19 @@ RailsAdmin.config do |config|
   end
 
    config.model 'Match' do
-    list do
-      field :id
-      field :club1_name
-      field :club2_name
-      field :match_date do
-        visible do
+     list do
+       field :id
+       field :club1_name
+       field :club2_name
+       field :match_date do
+         visible do
 
-        end
-      end
+         end
+       end
       field :match_time
       field :club_1_score
       field :club_2_score
       field :round_id
-    end
-  end
+     end
+   end
 end
