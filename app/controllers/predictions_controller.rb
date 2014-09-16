@@ -54,7 +54,7 @@ class PredictionsController < ApplicationController
     :club1_predicted_score,
     :club2_predicted_score,
     :selected_league_id,
-    :match_id, :is_predicted
+    :match_id
     )
   end
 end
