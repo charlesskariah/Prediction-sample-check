@@ -1,0 +1,15 @@
+class Prediction < ActiveRecord::Base
+  validate :check_for_matchdate
+<<<<<<< HEAD
+  validates :club1_predicted_score, :club2_predicted_score, presence: true
+=======
+  validates :club1_predicted_score, :club2_predicted_score, :presence => {:message => "Score should be atleast 0"}
+>>>>>>> 357cae05ce9e5410656cf08a3f49d39f2fa5e53e
+  belongs_to :selected_league
+  belongs_to :match
+
+  def check_for_matchdate
+    return unless match.start_time.past?
+    errors.add(:base, "You prediction can't be created ")
+  end
+end
