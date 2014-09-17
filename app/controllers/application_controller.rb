@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
   # Overwriting the sign_out redirect path method
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  # If authorisation from can can is failed then redirect to root
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.root_url, :alert => exception.message
+  end
+
   protected
 
   def configure_permitted_parameters

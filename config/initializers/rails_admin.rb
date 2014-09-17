@@ -1,5 +1,8 @@
 RailsAdmin.config do |config|
 
+  #Change the number of items per page
+  config.default_items_per_page = 50
+
   ### Popular gems integration
 
   ## == Devise ==
@@ -22,10 +25,8 @@ RailsAdmin.config do |config|
     index                         # mandatory
     new
     export
-    bulk_delete
     show
     edit
-    delete
     show_in_app
 
     ## With an audit adapter, you can add:
@@ -33,20 +34,18 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-   config.model 'Match' do
-     list do
-       field :id
-       field :club1_name
-       field :club2_name
-       field :match_date do
-         visible do
-
-         end
-       end
-      field :match_time
+  config.model 'Match' do
+    list do
+      field :club1_name
+      field :club2_name
+      field :start_time
       field :club_1_score
       field :club_2_score
       field :round_id
-     end
-   end
+    end
+    edit do
+      field :club_1_score
+      field :club_2_score
+    end
+  end
 end
