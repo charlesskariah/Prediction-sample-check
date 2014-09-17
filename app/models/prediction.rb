@@ -1,5 +1,5 @@
 class Prediction < ActiveRecord::Base
-  # validate :check_for_matchdate
+  validate :check_for_matchdate
   validates :club1_predicted_score, :club2_predicted_score, :presence => {:message => "Score should be atleast 0"}
   belongs_to :selected_league
   belongs_to :match
