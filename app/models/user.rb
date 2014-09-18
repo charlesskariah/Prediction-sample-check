@@ -2,8 +2,10 @@ class User < ActiveRecord::Base
   has_many :selected_leagues
   has_many :leagues, through: :selected_leagues
   has_many :preferences
+  accepts_nested_attributes_for :preferences, allow_destroy: true
 
   validates :firstname, presence: true
+  validates :user_agreement, acceptance: { accept: true }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

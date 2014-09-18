@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  before_filter :set_user_time_zone
+
+  def set_user_time_zone
+    Time.zone = Preference.find_by(user_id: current_user.id).time_zone if user_signed_in?
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -24,7 +29,7 @@ class ApplicationController < ActionController::Base
       u.permit(
       :firstname, :lastname, :username, :country,
       :dob, :email, :password, :password_confirmation,
-      :remember_me
+      :remember_me, :user_agreement, preferences_attributes: [:time_zone]
       )
     end
     devise_parameter_sanitizer.for(:sign_in) do |u|
