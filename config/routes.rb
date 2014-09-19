@@ -10,9 +10,18 @@ Rails.application.routes.draw do
 
   resources :predictions, only: [:create, :update, :delete]
 
-  resources :preferences
+  devise_for :users, controllers: { registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks' }
 
-  devise_for :users, controllers: { registration: 'registrations', omniauth_callbacks: 'omniauth_callbacks' }
+devise_scope :user do
+  authenticated :user do
+    root 'leagues#index', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root 'devise/sessions#new', as: :unauthenticated_root
+  end
+end
+
   # devise_scope :user do
   #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   # end
@@ -22,7 +31,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'leagues#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -4,7 +4,7 @@
 
   <%= f.fields_for(:preferences, Preference.new) do |o| %>
 
-  <%= render partial: 'form', locals: { :f => f , o: o} %>
+  <%= render partial: 'form', locals: { f: f , o: o} %>
 
   <div><%= f.check_box :user_agreement %>
   <%= f.label "I confirm that I am above 13 years age" %><br />
