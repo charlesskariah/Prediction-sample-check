@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(
     :firstname, :lastname,
     :email, :username, :country, :dob,
-    :password, :password_confirmation, :user_agreement
+    :password, :password_confirmation, :user_agreement,  preferences_attributes: [:time_zone]
     )
   end
 
