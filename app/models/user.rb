@@ -14,17 +14,17 @@ class User < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook]
 
   def self.from_omniauth(auth)
-    binding.pry
     existing_user = User.where(email: auth.info.email, uid: nil, provider: nil).first
     if existing_user.blank?
       where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
         user.provider = auth.provider
         user.uid = auth.uid
         user.email = auth.info.email
-        user.password = Devise.friendly_token[0, 20]
-        user.firstname = auth.info.name   # assuming the user model has a name
+        # user.password = Devise.friendly_token[0, 20]
+        user.firstname = auth.info.first_name
+        user.lastname = auth.info.last_name
         # user.image = auth.info.image # assuming the user model has an image
-        user.save!
+        user
       end
     else
       existing_user.provider = auth.provider
@@ -36,8 +36,13 @@ class User < ActiveRecord::Base
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
-        user.email = data['email'] if user.email.blank?
+      if data = session['devise.facebook_data']
+        user_info = session['devise.facebook_data']['extra']['raw_info']
+        user.email = user_info['email'] if user.email.blank?
+        user.firstname = user_info['first_name'] if user.firstname.blank?
+        user.lastname = user_info['last_name'] if user.lastname.blank?
+        user.provider = data['provider'] if user.provider.blank?
+        user.uid = data['uid'] if user.uid.blank?
       end
     end
   end
