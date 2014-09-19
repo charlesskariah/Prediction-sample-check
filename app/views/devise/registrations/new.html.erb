@@ -6,10 +6,6 @@
 
   <%= render partial: 'form', locals: { f: f, o: o} %>
 
-  <div><%= f.check_box :user_agreement %>
-  <%= f.label "I confirm that I am above 13 years age" %><br />
-  </div>
-
   <div><%= f.submit "Sign up" %></div>
   <% end %>
 <% end %>

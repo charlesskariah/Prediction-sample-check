@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
   def sign_up_params
     params.require(:user).permit(
     :firstname, :lastname,
-    :email, :username, :country, :dob,
+    :email, :username, :country,
     :password, :password_confirmation, :user_agreement,  preferences_attributes: [:time_zone]
     )
   end
@@ -14,10 +14,12 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(
      :firstname,
      :lastname,
-     :email,
+     :username,
+     :country,
      :password,
      :password_confirmation,
-     :current_password
+     :current_password,
+      preferences_attributes: [:time_zone]
       )
   end
 

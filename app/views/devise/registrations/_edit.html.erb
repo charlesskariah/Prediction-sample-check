@@ -1,14 +1,9 @@
 
-  <%= devise_error_messages! %>
-
    <div><%= f.label :first_name %><br />
   <%= f.text_field :firstname, :validate => true, autofocus: true %></div>
 
    <div><%= f.label :last_name %><br />
   <%= f.text_field :lastname,:validate => true %></div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
 
    <div><%= f.label :user_name %><br />
   <%= f.text_field :username %></div>
@@ -16,16 +11,10 @@
    <div><%= f.label :country %><br />
   <%= f.country_select :country, {object: f.object, prompt: 'Country'} %></div>
 
-  <div><%= f.label :new_password %><br />
+  <div><%= f.label :new_password %><i>(Please left the field blank if you don't want to change password)</i><br />
     <%= f.password_field :password, autocomplete: "off" %></div>
 
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-    <div><%= o.label :timezone %><br />
-  <%= o.time_zone_select :time_zone, /Chennai/, :default => "UTC" %>
-  </div>
-
-<div><%= f.check_box :user_agreement %>
-  <%= f.label "I confirm that I am above 13 years age" %><br />
-  </div>
+  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %></div>
