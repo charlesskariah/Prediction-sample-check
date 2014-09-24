@@ -11,7 +11,7 @@ class Match < ActiveRecord::Base
     selected_leagues.each do |league|
       predicted = Prediction.where(match_id: self, selected_league_id: league.id).to_a
       if !predicted.empty?
-        return predicted
+        return predicted.first
       else
         return false
       end

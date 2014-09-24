@@ -14,13 +14,12 @@ class PredictionsController < ApplicationController
     if @prediction.save
       round_id = params[:round_id]
       @league = @prediction.match.round.league
-      redirect_to controller: 'matches', action: 'index',
-      notice: 'Prediction Created!!', round_id: round_id
+      # binding.pry
+      redirect_to  league_matches_path(round_id: round_id),flash: {notice: "Prediction created" }
     else
       round_id = params[:round_id]
       @league = @prediction.match.round.league
-      redirect_to controller: 'matches', action: 'index',
-      notice: 'Prediction is not possible', round_id: round_id
+      redirect_to league_matches_path(round_id: round_id),flash: {notice: "Prediction not possible" }
     end
   end
 
@@ -29,11 +28,9 @@ class PredictionsController < ApplicationController
     @prediction = Prediction.find(params[:id])
     @league = @prediction.match.round.league
     if @prediction.update(prediction_params)
-      redirect_to controller: 'matches', action: 'index',
-      notice: 'Prediction Updated!!', round_id: round_id
+      redirect_to  league_matches_path(round_id: round_id),flash: {notice: "Prediction updated" }
     else
-      redirect_to controller: 'matches', action: 'index',
-      notice: 'No more predictions for this match!!', round_id: round_id
+      redirect_to  league_matches_path(round_id: round_id),flash: {notice: "No more predictions for this match" }
     end
   end
 

@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   has_many :selected_leagues
   has_many :leagues, through: :selected_leagues
-  has_many :preferences
-  accepts_nested_attributes_for :preferences, allow_destroy: true
+  has_one :preference
+
+  accepts_nested_attributes_for :preference, allow_destroy: true
 
   validates :firstname, presence: true
   validates :user_agreement, acceptance: { accept: true }

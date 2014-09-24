@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'predictions/index'
-  get 'leagues/index'
-  get 'leagues/join_league'
-  get 'matches/index'
-  get 'rounds/view_rounds'
-  get 'matches/test'
 
-  resources :predictions, only: [:create, :update, :delete]
+  resources :leagues do
+    resources :predictions
+      resources :matches
+    end
+
+  # resources :predictions, only: [:create, :update, :delete]
 
   devise_for :users, controllers: { registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks' }
 
@@ -19,6 +18,12 @@ devise_scope :user do
 
   unauthenticated do
     root 'devise/sessions#new', as: :unauthenticated_root
+  end
+end
+
+resource :user, only: [:edit] do
+  collection do
+    patch 'update'
   end
 end
 
